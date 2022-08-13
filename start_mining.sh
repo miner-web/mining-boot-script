@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 
-
-echo "hello world!" 
+echo "hello world!"
+echo "hello world!" > log1.txt
 
 apt update && apt install -y openssh-server && \
     echo "PermitRootLogin yes" >> /etc/ssh/sshd_config 
