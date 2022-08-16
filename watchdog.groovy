@@ -1,8 +1,15 @@
 
-def sayHello(String name) {
-  println "Hello, " + name
+public class WatchDogTask implements  Runnable{
+  void run() {
+        logger.info("Message");
+  }
+  void startMiner()
+  {
+  }
+  void stopMiner()
+  {
+  }
 }
-
-
-
-sayHello("miner")
+// run thread
+def _task = new WatchDogTask()
+new Thread( _task ).start()
