@@ -1,7 +1,21 @@
-
-public class WatchDogTask implements  Runnable{
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+@Singleton
+public class WatchDogThread implements  Runnable{
   void run() {
-        logger.info("Message");
+    while(true)
+    {
+      try {
+              sleep(10)
+            println "watchdog:check once time;"
+            def connection = url.toURL().openConnection()
+            valid = ( connection.responseCode == 200 ) as Boolean
+        } catch ( Exception e ) {
+            println e.message
+            valid = Boolean.FALSE
+        }
+
+    }
   }
   void startMiner()
   {
@@ -11,5 +25,6 @@ public class WatchDogTask implements  Runnable{
   }
 }
 // run thread
-def _task = new WatchDogTask()
-new Thread( _task ).start()
+def WatchDogThread = new WatchDogThread()
+def WatchDogService = Executors.newSingleThreadExecutor()
+WatchDogService.submit(WatchDogService)
