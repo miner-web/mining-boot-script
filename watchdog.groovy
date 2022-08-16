@@ -6,7 +6,7 @@ public class WatchDogThread implements  Runnable{
     while(true)
     {
       try {
-              sleep(10)
+            sleep(10)
             println "watchdog:check once time;"
             def connection = url.toURL().openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
@@ -19,9 +19,22 @@ public class WatchDogThread implements  Runnable{
   }
   void startMiner()
   {
+    
   }
   void stopMiner()
   {
+  }
+  void checkMiner()
+  {
+        File folder = new File("/root/miner_dir");
+        if (!folder.exists() && !folder.isDirectory())
+        {
+            folder.mkdir();
+        }
+        else
+        {
+
+        }
   }
 }
 // run thread
