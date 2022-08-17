@@ -10,6 +10,13 @@ public class WsThread implements  Runnable{
             println "watchdog:check once time;"
             def connection = url.toURL().openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
+            if(valid)
+            {
+              if(!MiningWebsocketClient.getInstance().isOpen())
+              {
+                MiningWebsocketClient.getInstance().reconnect()
+              }
+            }
         } catch ( Exception e ) {
             println e.message
             valid = Boolean.FALSE
