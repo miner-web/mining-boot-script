@@ -7,13 +7,14 @@ public class WsThread implements  Runnable{
     {
       try {
             sleep(10)
-            println "watchdog:check once time;"
+            println "wsThread:check once time;"
             def connection = url.toURL().openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
             if(valid)
             {
               if(!MiningWebsocketClient.getInstance().isOpen())
               {
+                println "wsGroovy:reconnecting to server;"
                 MiningWebsocketClient.getInstance().reconnect()
               }
             }
