@@ -6,6 +6,7 @@ public class WsThread implements  Runnable{
   {
     def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
     MiningWebsocketClient.serverUri = new URI(config.apiKey)
+    println "wsThread init:apiKey->" + ${config.apiKey}
   }
   void run() {
     while(true)
