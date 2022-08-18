@@ -4,6 +4,7 @@ import java.net.URI
 import java.net.URISyntaxException
 @Singleton
 public class WsThread implements  Runnable{
+  private Boolean valid = Boolean.FALSE
   void run() {
     try
     {
