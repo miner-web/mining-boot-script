@@ -2,6 +2,11 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 @Singleton
 public class WsThread implements  Runnable{
+  public WsThread()
+  {
+    def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
+    MiningWebsocketClient.serverUri = new URI(config.apiKey)
+  }
   void run() {
     while(true)
     {
