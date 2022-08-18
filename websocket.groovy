@@ -1,6 +1,6 @@
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-@Singleton
+@Singleton( strict = false )
 public class WsThread implements  Runnable{
   public WsThread()
   {
