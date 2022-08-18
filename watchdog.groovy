@@ -7,7 +7,7 @@ public class WatchDogThread implements Runnable{
     while(true)
     {
       try {
-            sleep(10)
+            sleep(10000)
             println "watchdog:check once time;"
             def connection = url.toURL().openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
