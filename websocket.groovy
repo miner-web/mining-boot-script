@@ -9,7 +9,7 @@ public class WsThread implements  Runnable{
     {
       def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
       println "wsThread init:config->${config} -> ${config.apiKey}"
-      println "mwc->"MiningWebsocketClient.serverUri
+      println "mwc->" + MiningWebsocketClient.serverUri
       //MiningWebsocketClient.serverUri = new URI(config.apiKey)
     }
     catch ( Exception e ) {
