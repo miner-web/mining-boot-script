@@ -6,13 +6,20 @@ import java.net.URISyntaxException
 public class WsThread implements  Runnable{
   private WsThread()
   {
+
+  }
+  void run() {
+    try
+    {
       def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
       println "wsThread init:config->${config} -> ${config.apiKey}"
       println "mwc->" + MiningWebsocketClient.serverUri
       MiningWebsocketClient.serverUri = new URI(config.apiKey)
       println "mwc3->" + MiningWebsocketClient.serverUri
-  }
-  void run() {
+    }
+    catch ( Exception e ) {
+      println e.message
+    }
     while(true)
     {
       try {
