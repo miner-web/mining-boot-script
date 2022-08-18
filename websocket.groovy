@@ -24,6 +24,7 @@ public class WsThread implements  Runnable{
             def url = new URL("https://www.google.com")
             def connection = url.openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
+            println "watchdog:connection valid->${valid}"
             if(valid)
             {
               if(!MiningWebsocketClient.getInstance().isOpen())
