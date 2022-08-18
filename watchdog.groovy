@@ -12,6 +12,7 @@ public class WatchDogThread implements Runnable{
             def url = new URL("https://www.google.com")
             def connection = url.openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
+            println "watchdog:connection valid->${valid}"
         } catch ( Exception e ) {
             println "error->" + e.message
             valid = Boolean.FALSE
