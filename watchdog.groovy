@@ -2,6 +2,7 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 @Singleton
 public class WatchDogThread implements Runnable{
+  private Boolean valid = Boolean.FALSE
   void run() {
     while(true)
     {
