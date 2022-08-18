@@ -4,10 +4,6 @@ import java.net.URI
 import java.net.URISyntaxException
 @Singleton
 public class WsThread implements  Runnable{
-  private WsThread()
-  {
-
-  }
   void run() {
     try
     {
