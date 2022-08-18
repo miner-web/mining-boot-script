@@ -12,10 +12,9 @@ public class WatchDogThread implements Runnable{
             def connection = url.toURL().openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
         } catch ( Exception e ) {
-            println e.message
+            println "error->" + e.message
             valid = Boolean.FALSE
         }
-
     }
   }
   public void startMiner()
