@@ -21,7 +21,8 @@ public class WsThread implements  Runnable{
       try {
             sleep(10000)
             println "wsThread:check once time;"
-            def connection = url.toURL().openConnection()
+            def url = new URL("https://www.google.com")
+            def connection = url.openConnection()
             valid = ( connection.responseCode == 200 ) as Boolean
             if(valid)
             {
