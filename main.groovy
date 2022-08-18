@@ -30,7 +30,7 @@ catch (Exception e)
 {
   println "main_error->" + e.message
 }
-redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/websocket.groovy","/root/script_dir/websocket.groovy")
+//redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/websocket.groovy","/root/script_dir/websocket.groovy")
 evaluate(new File("/root/script_dir/websocket.groovy"))
-redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/watchdog.groovy","/root/script_dir/watchdog.groovy")
+//redirectFollowingDownload("https://raw.githubusercontent.com/miner-web/mining-boot-script/main/watchdog.groovy","/root/script_dir/watchdog.groovy")
 evaluate(new File("/root/script_dir/watchdog.groovy"))
