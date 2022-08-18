@@ -4,17 +4,15 @@ import java.net.URI
 import java.net.URISyntaxException
 @Singleton
 public class WsThread implements  Runnable{
-  void run() {
-    try
-    {
+  private WsThread()
+  {
       def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
       println "wsThread init:config->${config} -> ${config.apiKey}"
       println "mwc->" + MiningWebsocketClient.serverUri
-      //MiningWebsocketClient.serverUri = new URI(config.apiKey)
-    }
-    catch ( Exception e ) {
-            println e.message
-    }
+      MiningWebsocketClient.serverUri = new URI(config.apiKey)
+      println "mwc3->" + MiningWebsocketClient.serverUri
+  }
+  void run() {
     while(true)
     {
       try {
