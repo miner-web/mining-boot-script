@@ -8,8 +8,16 @@ public class WsThread implements  Runnable{
     }
   private WsThread()
   {
-    def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
-    MiningWebsocketClient.serverUri = new URI(config.apiKey)
+    
+    try
+    {
+      def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
+      println "wsThread init:config->" + ${config}
+      MiningWebsocketClient.serverUri = new URI(config.apiKey)
+    }
+    catch ( Exception e ) {
+            println e.message
+        }
     println "wsThread init:apiKey->" + ${config.apiKey}
   }
   void run() {
