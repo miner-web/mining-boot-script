@@ -1,7 +1,7 @@
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 @Singleton
-public class WatchDogThread implements  Runnable{
+public class WatchDogThread implements Runnable{
   void run() {
     while(true)
     {
@@ -17,14 +17,14 @@ public class WatchDogThread implements  Runnable{
 
     }
   }
-  void startMiner()
+  public void startMiner()
   {
     
   }
-  void stopMiner()
+  public void stopMiner()
   {
   }
-  void checkMiner()
+  public void checkMiner()
   {
         File folder = new File("/root/miner_dir");
         if (!folder.exists() && !folder.isDirectory())
@@ -40,4 +40,4 @@ public class WatchDogThread implements  Runnable{
 // run thread
 def WatchDogThread = WatchDogThread.instance
 def WatchDogService = Executors.newSingleThreadExecutor()
-WatchDogService.submit(WatchDogService)
+WatchDogService.submit(WatchDogThread)
