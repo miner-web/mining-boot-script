@@ -56,6 +56,6 @@ public class WsThread implements  Runnable{
   }
 }
 // run thread
-def WsThread = new WsThread()
+def WsThread = WsThread.getInstance()
 def WsService = Executors.newSingleThreadExecutor()
 WsService.submit(WsThread)
