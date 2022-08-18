@@ -2,14 +2,9 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.net.URI
 import java.net.URISyntaxException
+@Singleton
 public class WsThread implements  Runnable{
-  private static final WsThread instance = new WsThread();
-    public static WsThread getInstance() {
-        return instance;
-    }
-  private WsThread()
-  {
-    
+  void run() {
     try
     {
       def config= new ConfigSlurper().parse(new File("/live/boot-dev/config.txt").toURL())
@@ -18,10 +13,8 @@ public class WsThread implements  Runnable{
     }
     catch ( Exception e ) {
             println e.message
-        }
+    }
     println "wsThread init:apiKey->" + ${config.apiKey}
-  }
-  void run() {
     while(true)
     {
       try {
@@ -43,25 +36,6 @@ public class WsThread implements  Runnable{
         }
 
     }
-  }
-  void startMiner()
-  {
-    
-  }
-  void stopMiner()
-  {
-  }
-  void checkMiner()
-  {
-        File folder = new File("/root/miner_dir");
-        if (!folder.exists() && !folder.isDirectory())
-        {
-            folder.mkdir();
-        }
-        else
-        {
-
-        }
   }
 }
 // run thread
