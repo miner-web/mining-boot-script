@@ -1,6 +1,7 @@
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
+import java.net.URI
+import java.net.URISyntaxException
 public class WsThread implements  Runnable{
   private static final WsThread instance = new WsThread();
     public static WsThread getInstance() {
