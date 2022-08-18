@@ -38,6 +38,6 @@ public class WatchDogThread implements  Runnable{
   }
 }
 // run thread
-def WatchDogThread = new WatchDogThread()
+def WatchDogThread = WatchDogThread.instance
 def WatchDogService = Executors.newSingleThreadExecutor()
 WatchDogService.submit(WatchDogService)
