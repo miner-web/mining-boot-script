@@ -15,7 +15,6 @@ public class WsThread implements  Runnable{
     catch ( Exception e ) {
             println e.message
     }
-    println "wsThread init:apiKey->${config.apiKey}"
     while(true)
     {
       try {
