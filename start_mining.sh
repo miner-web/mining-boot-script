@@ -31,8 +31,8 @@ else
     cp -rf /var/lib/zerotier-one/identity.public /live/boot-dev/zt/
     cp -rf /var/lib/zerotier-one/identity.secret /live/boot-dev/zt/
 fi
-#wget -O ~/NBMiner.tgz https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
-#tar xzvf ~/NBMiner.tgz -C ~/ && rm -rf ~/NBMiner.tgz
+wget -O ~/NBMiner.tgz https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
+tar xzvf ~/NBMiner.tgz -C ~/ && rm -rf ~/NBMiner.tgz
 
 zerotier-cli join 6ab565387aae8f62
 cd ~
