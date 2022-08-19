@@ -25,7 +25,7 @@ if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.se
     /etc/init.d/zerotier-one stop
     cp -rf /live/boot-dev/zt/identity.public /var/lib/zerotier-one/identity.public
     cp -rf /live/boot-dev/zt/identity.secret /var/lib/zerotier-one/identity.secret
-    /etc/init.d/zerotier-one stop
+    /etc/init.d/zerotier-one start
 else
     mkdir -p /live/boot-dev/zt/ 
     cp -rf /var/lib/zerotier-one/identity.public /live/boot-dev/zt/
