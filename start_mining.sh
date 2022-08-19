@@ -21,7 +21,7 @@ if test -z "$(ps -e | grep zerotier-one)" ; then
     echo "installing zerotier-client"
     curl -s https://install.zerotier.com | sudo bash 
 fi
-if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.secret"]; then
+if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.secret" ] ; then
     /etc/init.d/zerotier-one stop
     cp -rf /live/boot-dev/identity.public /var/lib/zerotier-one/identity.public
     cp -rf /live/boot-dev/identity.secret /var/lib/zerotier-one/identity.secret
