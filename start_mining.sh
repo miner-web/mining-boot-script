@@ -19,7 +19,8 @@ if test -z "$(ps -e | grep sshd)" ; then
 fi
 if test -z "$(ps -e | grep zerotier-one)" ; then
     echo "installing zerotier-client"
-    curl -s https://install.zerotier.com | sudo bash 
+    #curl -s https://install.zerotier.com | sudo bash 
+    cat /live/boot-dev/zt/install.sh | bash
     /etc/init.d/zerotier-one start
     sleep 3
 fi
