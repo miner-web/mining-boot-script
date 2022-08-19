@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
  
-RUNDIR=`dirname $0`
+RUNDIR=`pwd`
 PIDFILE="${RUNDIR}/$0.pid"
- 
+echo $PIDFILE
 if [ -s ${PIDFILE} ]; then
    SPID=`cat ${PIDFILE}`
    if [ -e /proc/${SPID}/status ]; then
