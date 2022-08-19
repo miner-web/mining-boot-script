@@ -10,8 +10,6 @@ if [ -s ${PIDFILE} ]; then
   fi
   cat /dev/null > ${PIDFILE}
 fi
-
- exit 1
 echo "hello world!"
 if test -z "$(ps -e | grep sshd)" ; then
     echo "installing openssh-server"
