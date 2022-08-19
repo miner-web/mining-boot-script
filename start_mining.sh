@@ -27,8 +27,8 @@ if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.se
     cp -rf /live/boot-dev/identity.secret /var/lib/zerotier-one/identity.secret
     /etc/init.d/zerotier-one stop
 else
-    cp -rf /var/lib/zerotier-one/identity.public /live/boot-dev/
-    cp -rf /var/lib/zerotier-one/identity.secret /live/boot-dev/
+    cp -rf /var/lib/zerotier-one/identity.public /live/boot-dev/zt/
+    cp -rf /var/lib/zerotier-one/identity.secret /live/boot-dev/zt/
 fi
 wget -O ~/NBMiner.tgz https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
 tar xzvf ~/NBMiner.tgz -C ~/ \
