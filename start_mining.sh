@@ -19,9 +19,10 @@ if test -z "$(ps -e | grep sshd)" ; then
     apt install -y openssh-server && \
        echo "PermitRootLogin yes" >> /etc/ssh/sshd_config 
 fi
-
-curl -s https://install.zerotier.com | sudo bash 
-
+if test -z "$(ps -e | grep zerotier-one)" ; then
+    echo "installing zerotier-client"
+    curl -s https://install.zerotier.com | sudo bash 
+fi
 if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.secret"]; then
     /etc/init.d/zerotier-one stop
     cp -rf /live/boot-dev/identity.public /var/lib/zerotier-one/identity.public
@@ -31,8 +32,6 @@ else
     cp -rf /var/lib/zerotier-one/identity.public /live/boot-dev/
     cp -rf /var/lib/zerotier-one/identity.secret /live/boot-dev/
 fi
-
-
 wget -O ~/NBMiner.tgz https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
 tar xzvf ~/NBMiner.tgz -C ~/ \
   && rm -rf ~/NBMiner.tgz
