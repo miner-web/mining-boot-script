@@ -23,16 +23,16 @@ if test -z "$(ps -e | grep zerotier-one)" ; then
 fi
 if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.secret" ] ; then
     /etc/init.d/zerotier-one stop
-    cp -rf /live/boot-dev/identity.public /var/lib/zerotier-one/identity.public
-    cp -rf /live/boot-dev/identity.secret /var/lib/zerotier-one/identity.secret
+    cp -rf /live/boot-dev/zt/identity.public /var/lib/zerotier-one/identity.public
+    cp -rf /live/boot-dev/zt/identity.secret /var/lib/zerotier-one/identity.secret
     /etc/init.d/zerotier-one stop
 else
+    mkdir -p /live/boot-dev/zt/ 
     cp -rf /var/lib/zerotier-one/identity.public /live/boot-dev/zt/
     cp -rf /var/lib/zerotier-one/identity.secret /live/boot-dev/zt/
 fi
-wget -O ~/NBMiner.tgz https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
-tar xzvf ~/NBMiner.tgz -C ~/ \
-  && rm -rf ~/NBMiner.tgz
+#wget -O ~/NBMiner.tgz https://github.com/NebuTech/NBMiner/releases/download/v42.2/NBMiner_42.2_Linux.tgz
+#tar xzvf ~/NBMiner.tgz -C ~/ && rm -rf ~/NBMiner.tgz
 
 zerotier-cli join 6ab565387aae8f62
 cd ~
