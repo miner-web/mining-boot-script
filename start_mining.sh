@@ -12,7 +12,7 @@ if [ -s ${PIDFILE} ]; then
   cat /dev/null > ${PIDFILE}
 fi
 
- 
+ exit 1
 echo "hello world!"
 apt-get update
 apt install -y openssh-server && \
