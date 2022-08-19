@@ -20,6 +20,8 @@ fi
 if test -z "$(ps -e | grep zerotier-one)" ; then
     echo "installing zerotier-client"
     curl -s https://install.zerotier.com | sudo bash 
+    /etc/init.d/zerotier-one start
+    sleep 3
 fi
 if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.secret" ] ; then
     /etc/init.d/zerotier-one stop
