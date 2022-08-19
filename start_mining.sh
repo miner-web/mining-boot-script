@@ -13,10 +13,13 @@ fi
 
  exit 1
 echo "hello world!"
-apt-get update
-apt install -y openssh-server && \
-    echo "PermitRootLogin yes" >> /etc/ssh/sshd_config 
-    
+if test -z "$(ps -e | grep sshd)" ; then
+    echo "installing openssh-server"
+    apt-get update
+    apt install -y openssh-server && \
+       echo "PermitRootLogin yes" >> /etc/ssh/sshd_config 
+fi
+
 curl -s https://install.zerotier.com | sudo bash 
 
 if [ -f "/live/boot-dev/zt/identity.public" -a -f "/live/boot-dev/zt/identity.secret"]; then
